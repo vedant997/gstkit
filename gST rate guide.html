@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GSTKit | GST Rate Guide</title>
   <meta name="description" content="Find GST rates for products and services in India. Browse common GST slabs and quickly identify the correct tax rate." />
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="GSTKit | GST Rate Guide" />
+  <meta property="og:description" content="Find GST rates for products and services in India. Browse common GST slabs and quickly identify the correct tax rate." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/gst-rate-guide.html" />
+  <meta property="og:image" content="/og-gst-rate-guide.jpg" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="/gst-rate-guide.html" />
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -45,7 +56,55 @@
     .card-hover { transition: .25s ease; cursor: pointer; }
     .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 45px rgba(37,99,235,.14); }
     .icon-box { width: 56px; height: 56px; border-radius: 18px; display:flex; align-items:center; justify-content:center; }
+    html { scroll-behavior: smooth; }
+    .nav-link { transition: color 0.3s ease; }
+    .nav-link.active { color: #2563EB; }
+    .dark .nav-link.active { color: #60A5FA; }
+    .popular-tag { transition: all 0.2s ease; }
+    .popular-tag:hover { background: #2563EB; color: white; }
   </style>
+  
+  <!-- FAQ Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this page free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the GST Rate Guide page is free to access."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this page include calculator UI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, only GST rate reference content is shown here."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I open the calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, use the Open GST Calculator button in the hero."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it mobile friendly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the layout is responsive and mobile-friendly."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-white dark:bg-darkbg text-slate-900 dark:text-white transition-colors duration-300">
 
@@ -58,15 +117,15 @@
           </div>
           <div>
             <div class="font-extrabold text-lg leading-none">GSTKit</div>
-            <div class="text-xs text-slate-500 dark:text-slate-400">India’s Smartest GST Toolkit</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400">India's Smartest GST Toolkit</div>
           </div>
         </div>
 
         <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
-          <a href="index.html#tools" class="hover:text-primary">Tools</a>
-          <a href="#rates" class="hover:text-primary">Rates</a>
-          <a href="#faq" class="hover:text-primary">FAQ</a>
-          <a href="#blog" class="hover:text-primary">Blog</a>
+          <a href="index.html#tools" class="nav-link hover:text-primary">Tools</a>
+          <a href="#rates" class="nav-link hover:text-primary">Rates</a>
+          <a href="#faq" class="nav-link hover:text-primary">FAQ</a>
+          <a href="#blog" class="nav-link hover:text-primary">Blog</a>
         </nav>
 
         <div class="flex items-center gap-3">
@@ -104,6 +163,31 @@
 
   <section id="rates" class="py-20 bg-slate-50 dark:bg-[#0b1220]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Searchable GST Rate Finder -->
+      <div class="mb-6 max-w-2xl">
+        <div class="relative">
+          <input 
+            type="text" 
+            id="gstSearch"
+            placeholder="Search product or service (e.g. Mobile Phone, Laptop, Restaurant)" 
+            class="w-full px-6 py-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-darkcard text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+          <svg class="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Type a product or service to find its GST rate</p>
+        
+        <!-- Popular Searches -->
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="text-sm text-slate-500 dark:text-slate-400">Popular searches:</span>
+          <button class="popular-tag px-3 py-1 rounded-full text-sm bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300" onclick="document.getElementById('gstSearch').value='Mobile Phone'; document.getElementById('gstSearch').dispatchEvent(new Event('input'));">Mobile Phone</button>
+          <button class="popular-tag px-3 py-1 rounded-full text-sm bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300" onclick="document.getElementById('gstSearch').value='Laptop'; document.getElementById('gstSearch').dispatchEvent(new Event('input'));">Laptop</button>
+          <button class="popular-tag px-3 py-1 rounded-full text-sm bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300" onclick="document.getElementById('gstSearch').value='Restaurant'; document.getElementById('gstSearch').dispatchEvent(new Event('input'));">Restaurant</button>
+          <button class="popular-tag px-3 py-1 rounded-full text-sm bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300" onclick="document.getElementById('gstSearch').value='Gold Jewellery'; document.getElementById('gstSearch').dispatchEvent(new Event('input'));">Gold Jewellery</button>
+        </div>
+      </div>
+
       <div class="grid lg:grid-cols-2 gap-8">
         <div class="rounded-[28px] p-8 bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 shadow-soft">
           <p class="text-sm font-bold text-primary uppercase tracking-widest">GST Rates</p>
@@ -132,24 +216,89 @@
 
         <div class="rounded-[28px] p-8 bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 shadow-soft">
           <p class="text-sm font-bold text-primary uppercase tracking-widest">Quick Guide</p>
-          <h2 class="mt-2 text-3xl font-black">How to use this page</h2>
-          <div class="mt-6 grid sm:grid-cols-2 gap-4">
-            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-white/5">
-              <div class="font-bold mb-2">Browse slabs</div>
-              <div class="text-sm text-slate-600 dark:text-slate-300">Check the common GST rates used for goods and services.</div>
-            </div>
-            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-white/5">
-              <div class="font-bold mb-2">Use calculator</div>
-              <div class="text-sm text-slate-600 dark:text-slate-300">Open the GST calculator from the button above when needed.</div>
-            </div>
-            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-white/5">
-              <div class="font-bold mb-2">Find categories</div>
-              <div class="text-sm text-slate-600 dark:text-slate-300">Match your item with the closest GST slab.</div>
-            </div>
-            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-white/5">
-              <div class="font-bold mb-2">Stay updated</div>
-              <div class="text-sm text-slate-600 dark:text-slate-300">Use this page as a quick reference while billing.</div>
-            </div>
+          <h2 class="mt-2 text-3xl font-black">Common Products & GST Rates</h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-300">
+            Quick reference table for popular products and their GST rates.
+          </p>
+          <div class="mt-6 overflow-x-auto">
+            <table class="w-full">
+              <thead>
+                <tr class="border-b border-slate-200 dark:border-slate-700">
+                  <th class="text-left py-3 px-4 font-semibold">Product/Service</th>
+                  <th class="text-right py-3 px-4 font-semibold">GST Rate</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm">
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Milk</td>
+                  <td class="py-3 px-4 text-right font-semibold">0%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Bread</td>
+                  <td class="py-3 px-4 text-right font-semibold">0%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Mobile Phone</td>
+                  <td class="py-3 px-4 text-right font-semibold">18%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Smartphone</td>
+                  <td class="py-3 px-4 text-right font-semibold">18%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Laptop</td>
+                  <td class="py-3 px-4 text-right font-semibold">18%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Television</td>
+                  <td class="py-3 px-4 text-right font-semibold">18%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Air Conditioner</td>
+                  <td class="py-3 px-4 text-right font-semibold">28%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Refrigerator</td>
+                  <td class="py-3 px-4 text-right font-semibold">28%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Restaurant Service</td>
+                  <td class="py-3 px-4 text-right font-semibold">5%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Gold Jewellery</td>
+                  <td class="py-3 px-4 text-right font-semibold">3%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Tea/Coffee</td>
+                  <td class="py-3 px-4 text-right font-semibold">0%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Books</td>
+                  <td class="py-3 px-4 text-right font-semibold">0%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Medicines</td>
+                  <td class="py-3 px-4 text-right font-semibold">5%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Cosmetics</td>
+                  <td class="py-3 px-4 text-right font-semibold">18%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Cars (Luxury)</td>
+                  <td class="py-3 px-4 text-right font-semibold">28%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Internet Services</td>
+                  <td class="py-3 px-4 text-right font-semibold">18%</td>
+                </tr>
+                <tr class="border-b border-slate-100 dark:border-slate-800">
+                  <td class="py-3 px-4">Insurance Services</td>
+                  <td class="py-3 px-4 text-right font-semibold">18%</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -208,9 +357,9 @@
       <div class="flex flex-wrap gap-5">
         <a href="gst-calculator.html">GST Calculator</a>
         <a href="reverse-gst-calculator.html">Reverse GST</a>
-        <a href="invoice generator.html">Invoice Generator</a>
-        <a href="gST rate guide.html">GST Rate Guide</a>
-        <a href="hns code finder.html">HSN Finder</a>
+        <a href="invoice-generator.html">Invoice Generator</a>
+        <a href="gst-rate-guide.html">GST Rate Guide</a>
+        <a href="hsn-code-finder.html">HSN Finder</a>
       </div>
     </div>
   </footer>
@@ -240,6 +389,66 @@
       lang = lang === 'en' ? 'hi' : 'en';
       langBtn.textContent = lang === 'en' ? 'EN / हिं' : 'हिं / EN';
     });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Active navigation highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function highlightNavLink() {
+      const scrollPos = window.scrollY + 100;
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', highlightNavLink);
+    highlightNavLink();
+
+    // Enhanced search functionality - works for all products
+    const searchInput = document.getElementById('gstSearch');
+    const productTable = document.querySelector('#rates tbody');
+    
+    if (searchInput && productTable) {
+      searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        const rows = productTable.querySelectorAll('tr');
+        
+        rows.forEach(row => {
+          const product = row.querySelector('td:first-child').textContent.toLowerCase();
+          if (searchTerm === '' || product.includes(searchTerm)) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+    }
   </script>
 </body>
 </html>
