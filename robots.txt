@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vedant997.github.io/gstkit/sitemap.xml
